@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #2563eb; /* blue-600 - Platform trust and navigation clarity */
+  --color-primary-50: #eff6ff; /* blue-50 */
+  --color-primary-100: #dbeafe; /* blue-100 */
+  --color-primary-500: #3b82f6; /* blue-500 */
+  --color-primary-600: #2563eb; /* blue-600 */
+  --color-primary-700: #1d4ed8; /* blue-700 */
+  --color-primary-900: #1e3a8a; /* blue-900 */
+
+  /* Secondary Colors */
+  --color-secondary: #64748b; /* slate-500 - Supporting information without competing */
+  --color-secondary-100: #f1f5f9; /* slate-100 */
+  --color-secondary-200: #e2e8f0; /* slate-200 */
+  --color-secondary-300: #cbd5e1; /* slate-300 */
+  --color-secondary-400: #94a3b8; /* slate-400 */
+  --color-secondary-500: #64748b; /* slate-500 */
+  --color-secondary-600: #475569; /* slate-600 */
+  --color-secondary-700: #334155; /* slate-700 */
+
+  /* Accent Colors */
+  --color-accent: #f59e0b; /* amber-500 - Community highlights and purchase confidence */
+  --color-accent-50: #fffbeb; /* amber-50 */
+  --color-accent-100: #fef3c7; /* amber-100 */
+  --color-accent-400: #fbbf24; /* amber-400 */
+  --color-accent-500: #f59e0b; /* amber-500 */
+  --color-accent-600: #d97706; /* amber-600 */
+  --color-accent-700: #b45309; /* amber-700 */
+
+  /* Background Colors */
+  --color-background: #fafafa; /* gray-50 - Clean product showcase canvas */
+  --color-surface: #ffffff; /* white - Card depth and content separation */
+
+  /* Text Colors */
+  --color-text-primary: #1e293b; /* slate-800 - Extended reading comfort */
+  --color-text-secondary: #64748b; /* slate-500 - Clear information hierarchy */
+
+  /* Status Colors */
+  --color-success: #10b981; /* emerald-500 - Purchase confirmation and positive feedback */
+  --color-success-50: #ecfdf5; /* emerald-50 */
+  --color-success-100: #d1fae5; /* emerald-100 */
+  --color-success-500: #10b981; /* emerald-500 */
+  --color-success-600: #059669; /* emerald-600 */
+
+  --color-warning: #f59e0b; /* amber-500 - Inventory alerts and time-sensitive offers */
+  --color-warning-50: #fffbeb; /* amber-50 */
+  --color-warning-100: #fef3c7; /* amber-100 */
+  --color-warning-500: #f59e0b; /* amber-500 */
+
+  --color-error: #ef4444; /* red-500 - Helpful problem identification */
+  --color-error-50: #fef2f2; /* red-50 */
+  --color-error-100: #fee2e2; /* red-100 */
+  --color-error-500: #ef4444; /* red-500 */
+  --color-error-600: #dc2626; /* red-600 */
+
+  /* Border Colors */
+  --color-border: #e2e8f0; /* slate-200 */
+  --color-border-light: #f1f5f9; /* slate-100 */
+
+  /* Shadow Variables */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-prominent: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 20px 25px rgba(0, 0, 0, 0.1),
+    0 10px 10px rgba(0, 0, 0, 0.04);
+
+  /* Transition Variables */
+  --transition-smooth: 300ms ease-out;
+  --transition-quick: 200ms ease-out;
+}
+
+/* Base Styles */
+@layer base {
+  body {
+    font-family: "Inter", sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-700 px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-secondary-200 focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-accent-600 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-surface rounded-lg shadow-card border border-border-light;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-prominent hover:-translate-y-1;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200;
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .shadow-subtle {
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .shadow-prominent {
+    box-shadow: var(--shadow-prominent);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-modal {
+    box-shadow: var(--shadow-modal);
+  }
+
+  .transition-smooth {
+    transition: all var(--transition-smooth);
+  }
+
+  .transition-quick {
+    transition: all var(--transition-quick);
+  }
+
+  .text-primary {
+    color: var(--color-text-primary);
+  }
+
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+
+  .bg-background {
+    background-color: var(--color-background);
+  }
+
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .border-light {
+    border-color: var(--color-border-light);
+  }
+}
